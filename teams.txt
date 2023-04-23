@@ -1,0 +1,5 @@
+Heat, Bucks, Cavaliers, Knicks, 76ers, Nets, Celtics, Hawks
+Nuggets, Grizzles, Kings, Suns, Clippers, Warriors, Lakers, Timberwolves
+
+MiamiHeat, MilwaukeeBucks, ClevelandCavaliers, NewYorkKnicks, Philadelphia76ers, BrooklynNets, BostonCeltics, AtlantaHawks
+DenverNuggets, MemphisGrizzlies, SacramentoKings, PhoenixSuns, LAClippers, GoldenStateWarriors, LosAngelesLakers, MinnesotaTimberwolves
