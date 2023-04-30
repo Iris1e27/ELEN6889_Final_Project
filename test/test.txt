@@ -1,0 +1,7 @@
+spark-submit \
+--master local \
+--conf "spark.sql.parquet.compression.codec=snappy" \
+--class com.example.ParquetToCsvConverter \
+/6889nba/parquet-to-csv-converter.jar \
+/6889nba/input/*.snappy.parquet \
+/6889nba/output/output.csv

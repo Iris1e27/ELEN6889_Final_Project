@@ -1,3 +1,7 @@
 tweepy
 nltk
 google-cloud-storage
+google-cloud-bigquery
+db-dtypes
+flask
+plotly

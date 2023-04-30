@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plot BigQuery</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Plot BigQuery</h1>
+      <div>
+        <p>Note that dataset contains data from <b>2023-04-13 00:00:00</b> to <b>2023-04-21 23:59:59</b></p>
+      </div>
+      <h2>Query</h2>
+
+      <form action="/plot" method="POST">
+        <div class="form-group col-md-6">
+          <label for="starttime">Start Time:</label>
+          <input type="datetime-local" id="starttime" name="starttime" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+          <label for="duration">Duration (in hours):</label>
+          <input type="number" id="duration" name="duration" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
+      {% if image1 %}
+        <h2>Result</h2>
+        <p>Start Time: {{ start_time }}</p>
+        <p>End Time: {{ end_time }}</p>
+        <p>Duration: {{ duration }} hours</p>
+      {% endif %}
+      {% if image1 %}
+        <br>
+        <img src="{{ image1 }}" alt="BigQuery Plot 1">
+      {% endif %}
+      {% if image2 %}
+        <br>
+        <img src="{{ image2 }}" alt="BigQuery Plot 2">
+      {% endif %}
+      {% if image3 %}
+        <br>
+        <img src="{{ image3 }}" alt="BigQuery Plot 3">
+      {% endif %}
+      </div>
+  </body>
+</html>
