@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-
+import plotly.express as px
 
 def plot_bigquery(start_time, end_time):
     # create BigQuery client object
@@ -41,6 +41,7 @@ def plot_1(df):
     counts = df_1.groupby('location')['count_likes'].sum()
 
     # 绘制饼状图
+    plt.figure(figsize=(12, 8))
     plt.pie(counts.values, labels=counts.index, autopct='%1.1f%%')
     plt.title('Count for likes by location')
     plt.savefig("static/figure1.png")
@@ -48,34 +49,56 @@ def plot_1(df):
 
     return "static/figure1.png"
 
+# def plot_2(df):
+#     # Convert start_time to 30-minute intervals and calculate the average sentiment
+#     hourly_sentiment = df.groupby(pd.Grouper(key='start_time', freq='30T'))['avg_sentiment'].mean()
+#
+#     # Create a scatter plot with a single point for every interval
+#     plt.scatter(hourly_sentiment.index, hourly_sentiment)
+#     plt.title('Average sentiment over time')
+#     plt.xlabel('Time')
+#     plt.ylabel('Average sentiment')
+#     plt.savefig("static/figure2.png")
+#     plt.close()
+#
+#     return "static/figure2.png"
+
+
 def plot_2(df):
-    # 将时间戳转化为日期格式
-    df['start_time'] = pd.to_datetime(df['start_time'], format='%Y-%m-%d %H:%M:%S')
-    df['end_time'] = pd.to_datetime(df['end_time'], format='%Y-%m-%d %H:%M:%S')
+    # Convert start_time to hourly intervals and calculate the average sentiment
+    hourly_sentiment = df.groupby(pd.Grouper(key='start_time', freq='15T'))['avg_sentiment'].mean()
 
-    # 按照时间排序
-    df = df.sort_values('start_time')
-
-    # 绘制点状图
-    plt.scatter(df['start_time'], df['avg_sentiment'])
-    plt.title('Average sentiment over time')
-    plt.xlabel('Time')
-    plt.ylabel('Average sentiment')
-    plt.savefig("static/figure2.png")
+    # Create a scatter plot with a single point for every hour
+    fig, ax = plt.subplots(figsize=(12, 8))
+    ax.scatter(hourly_sentiment.index, hourly_sentiment)
+    ax.set_title('Average sentiment over time')
+    ax.set_xlabel('Time')
+    ax.set_ylabel('Average sentiment')
+    fig.savefig("static/figure2.png")
     plt.close()
 
     return "static/figure2.png"
 
+
 def plot_3(df):
-    # 去除location为No location available.的记录
+    # Filter out records where the location field is equal to 'No location available.'
     df_1 = df[df['location'] != 'No location available.']
 
-    # 统计每个location的count for likes的总和
-    counts = df_1.groupby('location')['count_likes'].sum()
+    # Extract the state abbreviation from the location field (assuming the location field is in the format "City, State, Country")
+    df_1['state'] = df_1['location'].apply(lambda x: x.split(', ')[-2])
 
-    # 绘制饼状图
-    plt.pie(counts.values, labels=counts.index, autopct='%1.1f%%')
-    plt.title('Count for likes by location')
+    # Group the data by state and sum the count_likes field for each group
+    counts = df_1.groupby('state')['count_likes'].sum().reset_index()
+
+    # Sort the data by count_likes in descending order
+    counts = counts.sort_values('count_likes', ascending=False)
+
+    # Create a bar chart showing the count of likes for each state
+    plt.figure(figsize=(12, 8))
+    sns.barplot(x='state', y='count_likes', data=counts, color='b')
+    plt.title('Total count of likes by state')
+    plt.xlabel('State')
+    plt.ylabel('Total count of likes')
     plt.savefig("static/figure3.png")
     plt.close()
 
