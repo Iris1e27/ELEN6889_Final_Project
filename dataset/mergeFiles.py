@@ -20,4 +20,4 @@ for file in files:
 
 # 保存合并后的DataFrame到一个新的csv文件中
 merged_file_path = "mergedAll.csv"
-df.to_csv(merged_file_path, index=False)
+df.to_csv(merged_file_path, index=False, header=False)
