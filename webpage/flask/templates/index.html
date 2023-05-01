@@ -41,7 +41,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="/">Movie <span>Analysis</span></a></h1>
+        <h1><a href="/">NBA <span>Streaming</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt=""></a>-->
       </div>
@@ -53,7 +53,7 @@
           <li><a class="nav-link scrollto" href="#ts">Technology & System</a></li>
           <li><a class="nav-link scrollto" href="#dataset">Dataset</a></li>
           <li><a class="nav-link scrollto " href="#visualization">Visualization</a></li>
-          <li><a class="nav-link scrollto" href="#prediction">Prediction</a></li>
+          <li><a class="nav-link scrollto" href="#query">Query</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -64,9 +64,8 @@
 
   <!-- ======= hero Section ======= -->
   <section id="hero">
-
     <div class="hero-content" data-aos="fade-up">
-      <h2>Show you <span>Movie Analysis</span><br>from 2010 to 2022!</h2>
+      <h2><span>NBA Data Streaming</span><br>based on Twitter!</h2>
       <div>
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
         <a href="#visualization" class="btn-projects scrollto">See Results</a>
@@ -99,32 +98,32 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="box">
               <div class="icon"><i class="bi bi-binoculars"></i></div>
-              <h4 class="title">New Dataset</h4>
-              <p class="description">Crawl movie sales in the boxoffice website and combine them to existing datasets</p>
+              <h4 class="title">Real-Time Insights</h4>
+              <p class="description">Utilizing real-time data from social media to predict event performance.</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title">Feature Exploration</h4>
-              <p class="description">Analyze relations between movie sales and some factors (including release date, genre, runtime, imdb ratings…)</p>
+              <h4 class="title">Time-Sensitive Interest</h4>
+              <p class="description">Analyzing how interest levels change in relation to event timing, providing insights for optimizing promotional strategies.</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="box">
               <div class="icon"><i class="bi bi-bar-chart"></i></div>
-              <h4 class="title">Long Time Span</h4>
-              <p class="description">Provide a visualized analysis from 2010 to 2022</p>
+              <h4 class="title">Data-Driven</h4>
+              <p class="description">Leveraging real-time insights to design improved events and tailor promotional efforts, resulting in increased engagement and revenues.</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="box">
               <div class="icon"><i class="bi bi-briefcase"></i></div>
-              <h4 class="title">Creative and Interactive Application</h4>
-              <p class="description">Predict movie sales for movie providers when providing related information</p>
+              <h4 class="title">Optimized Event Design</h4>
+              <p class="description">Utilizing data-driven insights to develop superior events and tailor promotional activities for maximum engagement and revenue generation.</p>
             </div>
           </div>
 
@@ -141,20 +140,12 @@
         </div>
         <div class="container">
           <h4 class="title"><strong>Technology</strong></h4>
-          <p>In this project, we would like to collect and form a unique and qualified movie dataset containing complete and important movie features and information. Data preprocessing tasks have been involved in the process of building up
-our movie dataset. Then, we will look deeper on the dataset,
-conducting data visualization and analysis to see which factors affect movie gross more. After that, we would like to
-apply and train several types of machine learning models
-through scikit-learn to evaluate and compare their performances on movie gross prediction tasks. What is more, we
-also intend to make use of the ensemble approach, which
-has rarely been adopted in the research on predicting boxoffice performance, to test if such method could bring improvement on prediction accuracy. In the end, we hope to
-develop a website that will let people see historical movie
-data and forecast movie box office revenue using a variety
-of inputs.</p>
+          <p>In this project, We use Twitter API as the primary data source for the sport event analysis.The data is pulled in live from Twitter API and stored in Google Cloud Storage for further analysis. The live data is also continuously processed and updated as new tweets are posted. And we process and transform the data before storing it in GCP Storage.
+</p>
         </div>
         <div class="container">
           <h4 class="title"><strong>System Design</strong></h4>
-          <img src="https://raw.githubusercontent.com/HanlunWang/EECS6893_Final_Project/main/flaskr/static/assets/img/system.png" class="auto-img" alt="" >
+          <img src="../static/assets/img/figures/system.png" class="auto-img" alt="" >
         </div>
       </div>
     </section><!-- End Services Section -->
@@ -164,18 +155,7 @@ of inputs.</p>
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Dataset</h2>
-          <p>In order to acquire a complete and clean dataset for training the prediction models, we start from crawling data from
-websites of those large movie organizations, for instance
-imdb, and boxofficemojo. For feature engineering, we capture movie features that might affect the movie gross significantly. In our case, movie imdb rate, movie genre, movie
-duration, movie directors, and movie release year are the
-features we chose to train the machine learning model. After fetching the official movie data, we start to look at augmenting the datasets, in a word, increasing the volume of
-our dataset. Therefore, we choose a qualified movie dataset
-from imdb and preprocess through deleting the incomplete
-movie data and picking movie data ranging from 2010 to
-2022 in order to analyze movie in this range. Then, by combining the two datasets, we
-expand the size of our dataset. There are roughly 3000 rows
-of movie data within our dataset, with all the relevant
-feature information clearly presented.</p>
+          <p>To collect the dataset, we connect to the Twitter API and define specific hashtags, dates, and time ranges for retrieving tweets. We then analyze the sentiment of each tweet using a sentiment analysis tool. The dataset is organized with each entry representing a unique tweet, containing information such as the hashtag, time, text, location (if available), favorite count, and sentiment score. This comprehensive dataset enables a deeper understanding of public opinions and engagement with various topics on Twitter, as well as the exploration of trends, patterns, and insights related to the chosen hashtags.</p>
         </div>
 
         <div class="row gy-4">
@@ -183,32 +163,16 @@ feature information clearly presented.</p>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <div class="icon"><i class="bi bi-binoculars"></i></div>
-              <h4 class="title">crawl.py</h4>
-              <p class="description">How we crawled from <a href="https://www.boxofficemojo.com/year/world/2022/">boxofficemojo</a> website</p>
+              <h4 class="title">mergedName.csv</h4>
+              <p class="description">We use teams hashtag to get relevant tweets.</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title">crawl.dataset.csv</h4>
-              <p class="description">This csv is our crawled result</p>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="box">
-              <div class="icon"><i class="bi bi-binoculars"></i></div>
-              <h4 class="title">combine.py</h4>
-              <p class="description">How we combined with 4 existing datasets from <a href="https://www.imdb.com/interfaces/">imdb interface</a></p>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="box">
-              <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title">combine.dataset.csv</h4>
-              <p class="description">This csv is our combined result</p>
+              <h4 class="title">mergedPlaceName.csv.csv</h4>
+              <p class="description">We use tweets with location info to do further analysis. </p>
             </div>
           </div>
 
@@ -216,7 +180,7 @@ feature information clearly presented.</p>
 
         <div class="container">
           <br>
-          <h4 class="title"><strong>Need codes?</strong> <a href="https://raw.githubusercontent.com/HanlunWang/EECS6893_Final_Project">Click here to see our GitHub Repo!</a></h4>
+          <h4 class="title"><strong>Need codes?</strong> <a href="https://github.com/Iris1e27/ELEN6889_Final_Project">Click here to see our GitHub Repo!</a></h4>
         </div>
 
       </div>
@@ -233,74 +197,74 @@ feature information clearly presented.</p>
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="../static/assets/img/figures/imdbrate-distribution.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Average Sentiment per State.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>imdbrate-distribution</h4>
               <p>From this figure, you can find that 6.5 is the most common imdb rate in this dataset. Also, the number of imdb rate less than 5 and more than 8 is very small.</p>
-              <a href="../static/assets/img/figures/imdbrate-distribution.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Average Sentiment per State.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="../static/assets/img/figures/movie-genre-proportions.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Average Sentiment per State 1.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>movie-genre-proportions</h4>
               <p>This figure is to show the proportions of movie genres. Drama, comedy, action and adventure are the parts that is more than 10%.</p>
-              <a href="../static/assets/img/figures/movie-genre-proportions.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Average Sentiment per State 1.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="../static/assets/img/figures/runtime-distribution.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Likes by Day.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>runtime-distribution</h4>
               <p>From this figure, you can find that 100-125 mins is the most common run time in this dataset. Also, the number of imdb rate less than 75 and more than 175 is very small.</p>
-              <a href="../static/assets/img/figures/runtime-distribution.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Likes by Day.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="../static/assets/img/figures/top20-directors.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Sentiment by Day.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>top20-directors-movie-count</h4>
               <p>The number of movies made by Tyler Perry is the most in our dataset, followed by that made by Steven Spielberg. </p>
-              <a href="../static/assets/img/figures/top20-directors.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Sentiment by Day.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="../static/assets/img/figures/top10-directors-highest-gross.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Sentiment by Hour.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>top10-directors-highest-gross</h4>
               <p>The total gross of movies made by Christopher Nolan is almost 500 millions during 12 years.</p>
-              <a href="../static/assets/img/figures/top10-directors-highest-gross.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Sentiment by Hour.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="../static/assets/img/figures/highest-gross-movie.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Sentiment by Period.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>highest-gross-movie</h4>
               <p>Frozen II has the highest gross for 2.9 billions.</p>
-              <a href="../static/assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Sentiment by Period.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="../static/assets/img/figures/imdbrate-year.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Total Likes by Location.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>imdbrate-year</h4>
               <p>This figure is to show the change of imdb rate from year to year. This is a detailed version of imdbrate distribution, since we introduce the year variable.</p>
-              <a href="../static/assets/img/figures/imdbrate-year.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Total Likes by Location.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="../static/assets/img/figures/word-cloud.png" class="img-fluid" alt="">
+            <img src="../static/assets/img/figures/Total Likes by State.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>word-cloud</h4>
               <p>This figure is to show the word cloud of genre. You can see drama, comedy and action are the most popular ones.</p>
-              <a href="../static/assets/img/figures/word-cloud.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="../static/assets/img/figures/Total Likes by State.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
             </div>
           </div>
 
@@ -319,16 +283,16 @@ feature information clearly presented.</p>
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Prediction Section ======= -->
-    <section id="prediction" class="portfolio">
+    <section id="query" class="portfolio">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>prediction</h2>
-          <p>We use several models to predict the total gross when providing these information. </p>
+          <h2>query</h2>
+          <p>. </p>
         </div>
 
         <div>
           <h1>
-            <a href="/prediction" class="btn-get-started scrollto">Predict Your Movie</a>
+            <a href="/plot" class="btn-get-started scrollto">Try your query</a>
           </h1>
           
         </div>
@@ -347,8 +311,8 @@ feature information clearly presented.</p>
             <div class="member">
               <div class="pic"><img src="../static/assets/img/team-1.jpg" alt=""></div>
               <div class="details">
-                <h4>Hanlun Wang</h4>
-                <span>hw2839@columbia.edu</span>
+                <h4>Brian Yao</h4>
+                <span>by2344@columbia.edu</span>
               </div>
             </div>
           </div>
@@ -372,6 +336,15 @@ feature information clearly presented.</p>
               </div>
             </div>
           </div>
+            <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="../static/assets/img/team-4.jpg" alt=""></div>
+              <div class="details">
+                <h4>Yifeng Wang</h4>
+                <span>yw3933@columbia.edu</span>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -383,17 +356,17 @@ feature information clearly presented.</p>
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>22 Fall EECS 6893 Group #9</strong>. All Rights Reserved
+        &copy; Copyright <strong>ELEN 6889 Team</strong>. All Rights Reserved
       </div>
-      <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
-      -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+{#      <div class="credits">#}
+{#        <!--#}
+{#        All the links in the footer should remain intact.#}
+{#        You can delete the links only if you purchased the pro version.#}
+{#        Licensing information: https://bootstrapmade.com/license/#}
+{#        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal#}
+{#      -->#}
+{#        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>#}
+{#      </div>#}
     </div>
   </footer><!-- End Footer -->
 

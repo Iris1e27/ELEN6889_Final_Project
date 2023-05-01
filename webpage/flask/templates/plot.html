@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page - Plot BigQuery</title>
+  <title>Welcome Page</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -16,18 +16,18 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: Reveal - v4.9.1
+  * Template Name: Movie-Analysis - v4.9.1
   * Template URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
@@ -41,113 +41,93 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="/">NBA<span>Analysis</span></a></h1>
+        <h1><a href="/">NBA <span>Streaming</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt=""></a>-->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt=""></a>-->
       </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="/#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="/#about">Goal & Novelty</a></li>
-          <li><a class="nav-link scrollto" href="/#ts">Technology & System</a></li>
-          <li><a class="nav-link scrollto" href="/#dataset">Dataset</a></li>
-          <li><a class="nav-link scrollto " href="#visualization">Visualization</a></li>
-          <li><a class="nav-link scrollto" href="/prediction">Prediction</a></li>
-          <li><a class="nav-link scrollto" href="/#team">Team</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
 
-  <main id="main">
 
-    <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
+<section id="about">
+      <div class="container" data-aos="fade-up">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Plot by Window</h2>
-          <ol>
-            <li><a href="/">Home</a></li>
-            <li>Plot</li>
-          </ol>
+        <div class="section-header">
+          <h2>Plot BigQuery</h2>
         </div>
+        <p>Note that dataset contains data from <b>2023-04-13 00:00:00</b> to <b>2023-04-21 23:59:59</b></p>
 
-      </div>
-    </section><!-- End Breadcrumbs Section -->
+      <h2>Query</h2>
 
-    <section class="inner-page pt-4">
-      <div class="container">
-        <p>
-          Enter a start time and duration you want
-        </p>
-      </div>
-    </section>
-
-    <div class="container">
-      <h1>Plot BigQuery</h1>
-      <form action="/" method="POST">
+<div class="section-header">
+      <form action="/plot" method="POST">
         <div class="form-group col-md-6">
           <label for="starttime">Start Time:</label>
           <input type="datetime-local" id="starttime" name="starttime" class="form-control" required>
         </div>
+        <br>
         <div class="form-group col-md-6">
           <label for="duration">Duration (in hours):</label>
           <input type="number" id="duration" name="duration" class="form-control" required>
         </div>
+        <br>
         <div class="form-group col-md-6">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
 
       {% if image1 %}
+        <h2>Result</h2>
+        <p>Start Time: {{ start_time }}</p>
+        <p>End Time: {{ end_time }}</p>
+        <p>Duration: {{ duration }} hours</p>
+      {% endif %}
+      {% if image1 %}
+        <br>
         <img src="{{ image1 }}" alt="BigQuery Plot 1">
       {% endif %}
       {% if image2 %}
+        <br>
         <img src="{{ image2 }}" alt="BigQuery Plot 2">
       {% endif %}
       {% if image3 %}
+        <br>
         <img src="{{ image3 }}" alt="BigQuery Plot 3">
       {% endif %}
-
-    </div>
-
-  </main><!-- End #main -->
+      </div>
+</div>
+  </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>22 Fall EECS 6893 Group #9</strong>. All Rights Reserved
+        &copy; Copyright <strong>ELEN 6889 Team</strong>. All Rights Reserved
       </div>
-      <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
-      -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+{#      <div class="credits">#}
+{#        <!--#}
+{#        All the links in the footer should remain intact.#}
+{#        You can delete the links only if you purchased the pro version.#}
+{#        Licensing information: https://bootstrapmade.com/license/#}
+{#        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal#}
+{#      -->#}
+{#        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>#}
+{#      </div>#}
     </div>
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.dropdown.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js')}}"></script>
 
 </body>
 
