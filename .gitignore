@@ -2,3 +2,4 @@ venv
 .idea
 *.pyc
 *.map
+.DS_Store
