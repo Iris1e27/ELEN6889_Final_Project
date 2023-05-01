@@ -9,6 +9,9 @@
 2. Run flask only
   - ```cd webpage/flask```
   - ```python3 __init__.py```
+Note that in local you should connect your CLI to your google account or in gcp you should give your account IAM permission and export like this:
+```export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key-file.json"```
+
   
 ## About Requirements
 
