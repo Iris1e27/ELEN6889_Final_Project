@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Welcome Page</title>
+  <title>Plot Page</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -56,8 +56,8 @@
           <h2>Plot BigQuery</h2>
         </div>
         <p>Note that dataset contains data from <b>2023-04-13 00:00:00</b> to <b>2023-04-21 23:59:59</b></p>
-
-      <h2>Query</h2>
+        <p>Generally, you have to wait <b>about 5 seconds</b> for the result to come out. </p>
+          <h4><b>Query</b></h4>
 
 <div class="section-header">
       <form action="/plot" method="POST">
@@ -75,9 +75,12 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
-
+</div>
+      <div class="section-header">
       {% if image1 %}
-        <h2>Result</h2>
+
+            <h2>Result</h2>
+
         <p>Start Time: {{ start_time }}</p>
         <p>End Time: {{ end_time }}</p>
         <p>Duration: {{ duration }} hours</p>

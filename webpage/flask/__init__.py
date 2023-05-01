@@ -23,10 +23,10 @@ def plot():
         path1, path2, path3 = plot_bigquery(start_time, end_time)
 
         # 将 path1、path2、path3 作为参数传递给模板文件
-        return render_template('plottest.html', start_time=start_time, end_time=end_time, duration=duration,
+        return render_template('plot.html', start_time=start_time, end_time=end_time, duration=duration,
                                image1=path1, image2=path2, image3=path3)
     # 如果是 GET 请求，返回空表单
-    return render_template('plottest.html')
+    return render_template('plot.html')
 
 if __name__ == '__main__':
     app.secret_key = "super secret key"
