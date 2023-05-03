@@ -42,7 +42,16 @@
 ### Analysis
 
 - We use Spark streaming, using 30 min as a start time interval and 1 h as a duration to analyze data, as you can see [here](https://github.com/Iris1e27/ELEN6889_Final_Project/blob/master/analysis/6889_streaming_analysis.ipynb)
+
+![ce063309ccb94acaa15b5416bfcec53](https://user-images.githubusercontent.com/42087697/235928047-dc6e0532-0183-4403-afeb-830e9b9e0336.png)
+
+
 - Also we try a smaller interval, using 30 min as a start time interval and 30 min as a duration to analyze data, as you can see [here](https://github.com/Iris1e27/ELEN6889_Final_Project/blob/master/analysis/streaming_method_NBA.py)
+
+![56f8d63c832f2ff9c0b285c90d500d8](https://user-images.githubusercontent.com/42087697/235927643-abb20d31-9891-4464-a532-fbfaf33feacc.png)
+
+![4f0af2d8b70892293674bdeafc4224f](https://user-images.githubusercontent.com/42087697/235927824-4d430ee6-0cc4-46b1-8ea7-d34096ef8812.png)
+
 
 ### Webpage
 
@@ -50,10 +59,21 @@
 - For the frontend design, we use [this](https://bootstrapmade.com/demo/Reveal/) as our template.
 - For plot design, we post info from '/plot', and generate graphs by [this](https://github.com/Iris1e27/ELEN6889_Final_Project/blob/master/webpage/flask/plotBigQuery.py) python script, then show them on the same page.
 
+![image](https://user-images.githubusercontent.com/42087697/235928633-652e2449-e05d-47af-a1dc-01a2c2bc5a7a.png)
+
+![image](https://user-images.githubusercontent.com/42087697/235928479-50727c4d-829d-48f2-b272-8093c8da1a93.png)
+
+
 ## About GCP deployment
 
 1. We run cluster (3 masters, 2 workers) on GCP to analyze our streaming data, save the results in Google Cloud Storage (GCS) and combine them into one csv.
+
+![e03052096b11c5c68c8a89ae8702c87](https://user-images.githubusercontent.com/42087697/235927880-cdb651e9-1c15-4042-b60d-8016da48ae89.png)
+
 2. Then import data to Big Query and save as a table, also write a .py file to query from the result.
+
+![6814876c822c360846dcd1bcf7e273f](https://user-images.githubusercontent.com/42087697/235927733-43fc3f4e-8eb3-44e7-a39d-5ec0c1fa04a7.png)
+
 3. Run a VM instance to deploy our web app and set up environment. 
 
 ## About Results
