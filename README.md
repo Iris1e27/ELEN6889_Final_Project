@@ -1,6 +1,7 @@
 # ELEN6889_Final_Project
 - A streaming processing project about NBA games based on [Twitter API](https://developer.twitter.com/en).
 - Mainly focus on sentiment analysis by location and time.
+- You can browser our website from [here](http://34.66.247.178:8111/), but when we run out of GCP credit, the app will be turn down.
 
 ## How to Run
 
@@ -62,6 +63,7 @@
 
 - Some codes and graphs showing the information we get
 - An interactive web app to query streaming data and generate graphs
+- You can browser our website from [here](http://34.66.247.178:8111/)
 
 ## About Screenshot
 
